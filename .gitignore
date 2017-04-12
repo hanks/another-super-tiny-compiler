@@ -89,3 +89,7 @@ ENV/
 .ropeproject
 *.pyc
 
+.cache/
+.coverage
+htmlcov/
+
