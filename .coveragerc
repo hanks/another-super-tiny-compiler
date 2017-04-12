@@ -1,0 +1,21 @@
+[run]
+# Enable branch coverage measurement
+branch = True
+
+omit =
+
+[report]
+# Regexes for lines to exclude from consideration
+exclude_lines =
+    # Have to redefine the standard pragma
+    pragma: no cover
+
+# Skip to show full covered files
+skip_covered = True
+
+# Show missing lines
+show_missing = True
+
+# Target coverage percentage 90%, or else exit with status code of 2
+fail_under = 35
+
