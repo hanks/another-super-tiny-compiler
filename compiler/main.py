@@ -3,10 +3,14 @@
 
 import re
 
+from compiler.exceptions import InvalidTokenTypeError
+
 
 class Token(object):
     PAREN = "paren"
     NUMBER = "number"
+    STRING = "string"
+    NAME = "name"
 
     def __init__(self, type, value, params=None):
         self.type = type
@@ -36,13 +40,23 @@ param: {}
 class Pattern(object):
     WHITESPACE = r"\s"
     NUMBER = r"[0-9]"
+    DOUBLE_QUOTE = r"\""
+    NAME = r"[A-Z]"
+
+    # pre compile patterns for optimization
+    whitespace = re.compile(WHITESPACE)
+    number = re.compile(NUMBER)
+    double_quote = re.compile(DOUBLE_QUOTE)
+    # case-insensitive for name type
+    name = re.compile(NAME, re.I)
 
 
 def tokenizer(input):
     current = 0
     tokens = []
+    length = len(input)
 
-    while current < len(input):
+    while current < length:
         char = input[current]
 
         if char == "(":
@@ -58,19 +72,55 @@ def tokenizer(input):
             continue
 
         # ignore whitespace
-        if re.match(Pattern.WHITESPACE, char):
+        if Pattern.whitespace.match(char):
             current += 1
             continue
 
-        if re.match(Pattern.NUMBER, char):
+        if Pattern.number.match(char):
             value = []
-            while re.match(Pattern.NUMBER, char):
+            while Pattern.number.match(char):
                 value.append(char)
                 current += 1
+                if current >= length:
+                    break
                 char = input[current]
 
             t = Token(Token.NUMBER, "".join(value))
             tokens.append(t)
             continue
+
+        if Pattern.double_quote.match(char):
+            value = []
+            # skip start double quote
+            current += 1
+            char = input[current]
+
+            while not Pattern.double_quote.match(char):
+                value.append(char)
+                current += 1
+                if current >= length:
+                    break
+                char = input[current]
+
+            # skip end double quote
+            current += 1
+            t = Token(Token.STRING, "".join(value))
+            tokens.append(t)
+            continue
+
+        if Pattern.name.match(char):
+            value = []
+            while Pattern.name.match(char):
+                value.append(char)
+                current += 1
+                if current >= length:
+                    break
+                char = input[current]
+
+            t = Token(Token.NAME, "".join(value))
+            tokens.append(t)
+            continue
+
+        raise InvalidTokenTypeError()
 
     return tokens
