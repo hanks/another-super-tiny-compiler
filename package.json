@@ -1,0 +1,29 @@
+{
+  "name": "python-super-tiny-compiler",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "PYTHONPATH=. py.test --flake8 --cov=compiler --cov-report=html --cov-report=term",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@bitbucket.org/hanks315/python-super-tiny-compiler.git"
+  },
+  "keywords": [],
+  "author": "hanks",
+  "license": "MIT",
+  "homepage": "https://bitbucket.org/hanks315/python-super-tiny-compiler#readme",
+  "devDependencies": {
+    "cz-conventional-changelog": "^2.0.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}

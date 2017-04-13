@@ -93,3 +93,4 @@ ENV/
 .coverage
 htmlcov/
 
+node_modules/
