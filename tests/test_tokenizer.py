@@ -3,7 +3,7 @@
 
 import pytest
 
-from compiler.main import tokenizer, Token
+from compiler.tokenizer import tokenizer, Token
 from compiler.exceptions import InvalidTokenTypeError
 
 

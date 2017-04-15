@@ -94,3 +94,5 @@ ENV/
 htmlcov/
 
 node_modules/
+
+.idea/

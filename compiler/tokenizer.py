@@ -12,21 +12,19 @@ class Token(object):
     STRING = "string"
     NAME = "name"
 
-    def __init__(self, type, value, params=None):
+    def __init__(self, type, value):
         self.type = type
         self.value = value
-        self.params = params
 
     def __str__(self):
         return """
 type: {}
 value: {}
-param: {}
-""".format(self.type, self.value, self.params)
+""".format(self.type, self.value)
 
     def __eq__(self, other):
         if type(other) is type(self):
-            return self.type == other.type and self.value == other.value and self.params == other.params
+            return self.type == other.type and self.value == other.value
 
         return False
 
