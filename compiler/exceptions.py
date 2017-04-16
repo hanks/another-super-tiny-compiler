@@ -4,3 +4,7 @@
 
 class InvalidTokenTypeError(Exception):
     pass
+
+
+class InvalidNodeTypeError(Exception):
+    pass
