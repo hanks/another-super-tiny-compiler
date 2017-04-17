@@ -8,3 +8,7 @@ class InvalidTokenTypeError(Exception):
 
 class InvalidNodeTypeError(Exception):
     pass
+
+
+class InvalidTargetNodeTypeError(Exception):
+    pass
