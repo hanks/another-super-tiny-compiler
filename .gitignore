@@ -87,3 +87,13 @@ ENV/
 
 # Rope project settings
 .ropeproject
+*.pyc
+
+.cache/
+.coverage
+htmlcov/
+
+node_modules/
+
+.idea/
+npm-debug.log
