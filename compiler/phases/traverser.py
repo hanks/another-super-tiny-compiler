@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from compiler.parser import Node
 from compiler.exceptions import InvalidNodeTypeError
+from compiler.phases.parser import Node
 
 
 def traverse_node(node, parent, visitor):

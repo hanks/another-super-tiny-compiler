@@ -2,9 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import pytest
-from compiler.transformer import TargetNode
+from compiler.models.target_node import TargetNode
+
 from compiler.exceptions import InvalidTargetNodeTypeError
-from compiler.code_generator import code_generator
+from compiler.phases.code_generator import code_generator
 
 
 def test_code_generator_exception():

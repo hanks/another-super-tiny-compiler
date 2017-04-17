@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from compiler.transformer import TargetNode
 from compiler.exceptions import InvalidTargetNodeTypeError
+from compiler.phases.transformer import TargetNode
 
 
 def code_generator(node):

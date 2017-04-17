@@ -2,10 +2,10 @@
 # -*- coding: utf-8 -*-
 
 import pytest
+from compiler.models.token import Token
 
-from compiler.tokenizer import Token
-from compiler.parser import Node, walk, parser
 from compiler.exceptions import InvalidTokenTypeError
+from compiler.phases.parser import Node, walk, parser
 
 
 def test_node():

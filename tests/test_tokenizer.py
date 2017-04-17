@@ -3,8 +3,8 @@
 
 import pytest
 
-from compiler.tokenizer import tokenizer, Token
 from compiler.exceptions import InvalidTokenTypeError
+from compiler.phases.tokenizer import tokenizer, Token
 
 
 def test_tokenizer_paren():

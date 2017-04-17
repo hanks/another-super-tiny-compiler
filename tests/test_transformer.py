@@ -1,8 +1,9 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-from compiler.transformer import transformer, TargetNode, visitor
-from compiler.parser import Node
+from compiler.phases.transformer import transformer, visitor
+from compiler.models.target_node import TargetNode
+from compiler.phases.parser import Node
 
 
 def test_transformer():
