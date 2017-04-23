@@ -8,7 +8,7 @@ from compiler.phases.parser import Node
 def traverse_node(node, parent, visitor):
     methods = visitor.get(node.type)
 
-    if methods and hasattr(methods, "enter"):
+    if methods and "enter" in methods:
         methods.enter(node, parent)
 
     if node.type == Node.Program:
@@ -20,7 +20,7 @@ def traverse_node(node, parent, visitor):
     else:
         raise InvalidNodeTypeError()
 
-    if methods and hasattr(methods, "exit"):
+    if methods and "exit" in methods:
         methods.exit(node, parent)
 
 
