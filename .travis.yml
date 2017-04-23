@@ -10,3 +10,6 @@ script: PYTHONPATH=. py.test --flake8 --cov=compiler tests/
 
 notifications:
   email: false
+
+after_success:
+  - coveralls
